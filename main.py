@@ -18,7 +18,7 @@ img = st.sidebar.selectbox(
 
 style_name = st.sidebar.selectbox(
     'Выберите Стиль',
-    ('Pop art', 'Art Nouveau', 'Cubism', 'Abstract')
+    ('Pop art', 'Art Nouveau')
 )
 
 
