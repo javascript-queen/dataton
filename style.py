@@ -34,7 +34,7 @@ def load_model(model_path):
         return style_model
 
 
-def stylize(style_model, content_image, output_image):
+def stylize(_style_model, content_image, output_image):
     content_image = utils.load_image(content_image)
     content_transform = transforms.Compose([
         transforms.ToTensor(),
@@ -43,6 +43,6 @@ def stylize(style_model, content_image, output_image):
     content_image = content_transform(content_image)
     content_image = content_image.unsqueeze(0).to(device)
     with torch.no_grad():
-        output = style_model(content_image).cpu()
+        output = _style_model(content_image).cpu()
 
     utils.save_image(output_image, output[0])
