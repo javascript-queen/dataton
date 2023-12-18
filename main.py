@@ -3,7 +3,7 @@
 # pip install streamlit
 # pip install torch torchvision
 # streamlit run main.py
-# python3 download_saved_models.py
+
 import time
 import streamlit as st
 from PIL import Image
@@ -22,7 +22,7 @@ style_name = st.sidebar.selectbox(
 )
 
 
-model = "saved_models/" + style_name + ".pth"
+model = "models/" + style_name + ".pth"
 input_image = "images/content-images/" + img
 output_image = "images/output-images/" + style_name + "-" + img
 
