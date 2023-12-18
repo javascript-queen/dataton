@@ -19,7 +19,7 @@ import streamlit as st
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-
+@st.cache_data
 def load_model(model_path):
     print('load model')
     with torch.no_grad():
