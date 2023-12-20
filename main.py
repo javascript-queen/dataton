@@ -3,7 +3,7 @@
 # pip install streamlit
 # pip install torch torchvision
 # streamlit run main.py
-# python3 download_saved_models.py
+
 import time
 import streamlit as st
 from PIL import Image
@@ -43,7 +43,7 @@ extensions = [".png", ".jpeg", ".jpg"]
 if uploaded_file is not None and any(extension in uploaded_file.name for extension in extensions):
 
     name_file = uploaded_file.name.split(".")
-    root_model = "./saved_models"
+    root_model = "./models"
     model_path = os.path.join(root_model, style_name+".pth")
 
     img = img.convert('RGB')
