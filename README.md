@@ -1,11 +1,12 @@
 # Группа 10 - Проект для Dataton от Skillfactory Науки о Данных
 
 ### Состав группы 10:
-- Марина Яськова
+- Анна Трэйлор
 - Леонид Бахтияров
+- Марина Яськова
 - Елена Петушкова
 - Алёна Драгунская
-- Анна Трэйлор
+
 
 ## Задание
 
@@ -46,20 +47,17 @@
   
      ![Art Nouveau-selfie-kid](https://github.com/javascript-queen/dataton/assets/90614620/da3181f6-0c67-4ba9-b7da-5d004bfa4711)
 
-  
    - Поп Арт:
   
      ![Pop Art](https://github.com/javascript-queen/dataton/assets/90614620/f23a1340-31fc-4a3d-b19e-f7aabe69a7fc)
      
      ![Pop Art-selfie-kid](https://github.com/javascript-queen/dataton/assets/90614620/9f07507a-951c-43d5-9b94-6b48c37f85e5)
 
-  
    - Кубизм:
      
    ![Cubism](https://github.com/javascript-queen/dataton/assets/90614620/c61c61d1-6b65-4045-a4c7-cfb51a2ff2f1)
 
    ![Cubism-selfie-kid](https://github.com/javascript-queen/dataton/assets/90614620/f93a03dd-c495-4948-9ee3-c2e82fe1ec77)
-
    
 ### 3. Как запускать приложение локально:
 1. Склонировать репозиторий локально
@@ -67,34 +65,35 @@
    ```
    # git clone https://github.com/javascript-queen/dataton.git
    ```
-3. Запустить venv в общей папке:
+2. Запустить venv в общей папке:
     ```
    # python3 -m venv venv
    # . venv/bin/activate
    ```
-5. Зайти в папку neural-style:
+3. Зайти в папку neural-style:
    ```
    # cd neural-style
    ```
-   
-7. Загрузить dependencies:
+
+4. Загрузить dependencies:
    ```
    # pip install streamlit
    # pip install torch torchvision
    ```
    
-9. Запустить streamlit приложение:
+5. Запустить streamlit приложение:
    ```
    # streamlit run main.py
    ```
 
 ## БОТ 
 ### 1. Скрипт:
-- Скрипт бота находится в ветви bot
+- Скрипт бота находится в ветви bot: 
 ### 2. Телеграм-бот:
 - Ботом можно будет пользоваться в телеграме: [ссылка](t.me/barbarartbot)
-### 3. Интерфейс телеграм-бота:
-  
+### 3. Работа телеграм-бота:
+  ![bot_Artboard 1](https://github.com/javascript-queen/dataton/assets/90614620/c9367226-f67c-4ab0-aa4c-8daaec28fa4a)
+
 
 ## МОДЕЛЬ
 ### 1. Neural Style Transfer:
