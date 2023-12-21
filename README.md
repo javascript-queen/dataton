@@ -19,9 +19,17 @@
    
 ### 3. Как запускать приложение локально:
 1. Склонировать репозиторий локально
-2. Загрузить все пакеты
-3. Запустить venv в общей папке: 
-4. Зайти в папку neural-style
-5. Запустить streamlit приложение: **streamlit run main.py**
+2. Запустить venv в общей папке:
+   # python3 -m venv venv
+   # . venv/bin/activate
+3. Зайти в папку neural-style:
+   # cd neural-style
+
+4. Загрузить dependencies:
+   # pip install streamlit
+   # pip install torch torchvision
+   
+5. Запустить streamlit приложение: 
+# streamlit run main.py
 
 ### 4. Как обучить свою модель:
