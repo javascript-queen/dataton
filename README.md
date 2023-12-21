@@ -155,7 +155,6 @@ python neural_style/neural_style.py train --dataset </path/to/train-dataset> --s
 
 ```--dataset:``` путь к обучающему набору данных, должен указывать на папку, содержащую еще одну папку со всеми обучающими изображениями. Например, можно воспользоваться данными датасетами:
  - [датасет-1](https://cocodataset.org/#download)
- - 
 ```--style-image:``` путь к изображению стиля.
 ```--save-model-dir:``` путь к папке, где будет сохранена обученная модель.
 ```--cuda:``` установите значение 1 для выполнения на GPU, 0 для выполнения на CPU.
@@ -167,7 +166,7 @@ python neural_style/neural_style.py train --dataset </path/to/train-dataset> --s
 - Модель была предоставлена официальным (репозиторием PyTorch)[https://github.com/pytorch/examples/tree/main] для обучения моделей машинного обучения на локальных компьюетрах.
 - Все изображения взяты с официальных иточников свободных для использования:
    - [freepik](https://www.freepik.com)
-   - [Русский музей (виртуальная коллекция)]([https://rusmuseumvrm.ru/collections/index.php)
+   - [Русский музей (виртуальная коллекция)](https://rusmuseumvrm.ru/collections/index.php)
 
 ## Бот
 ### 1. Скрипт:
