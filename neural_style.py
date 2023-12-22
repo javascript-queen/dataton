@@ -1,10 +1,16 @@
+# Импорт модуля для обработки аргументов командной строки.
 import argparse
+# Импорт модуля для взаимодействия с операционной системой.
 import os
+# Импорт системного модуля для доступа к различным переменным и функциям Python.
 import sys
+# Импорт модуля для работы со временем.
 import time
+# Импорт модуля для работы с регулярными выражениями.
 import re
 
 import numpy as np
+# Импорт пакетов Torch
 import torch
 from torch.optim import Adam
 from torch.utils.data import DataLoader
@@ -12,11 +18,14 @@ from torchvision import datasets
 from torchvision import transforms
 import torch.onnx
 
+# Импорт пользовательских утилит
 import utils
+#  Импорт класса TransformerNet из файла transformer_net.py
 from transformer_net import TransformerNet
+# Импорт класса Vgg16 из файла vgg.py
 from vgg import Vgg16
 
-
+# Функция check_paths(args): проверяет существование и создает директории для сохранения моделей.
 def check_paths(args):
     try:
         if not os.path.exists(args.save_model_dir):
@@ -27,9 +36,11 @@ def check_paths(args):
         print(e)
         sys.exit(1)
 
-
+# Функция train(args): отвечает за процесс обучения модели на наборе данных.
 def train(args):
     device = torch.device("cuda" if args.cuda else "cpu")
+    # Здесь происходит инициализация датасета и загрузчика данных, модели, оптимизатора, вычисление функции потерь,
+    # цикл обучения модели с вычислением контентных и стилевых потерь и сохранением промежуточных результатов.
 
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
@@ -118,8 +129,12 @@ def train(args):
 
     print("\nDone, trained model saved at", save_model_path)
 
-
+# Функция stylize(args): отвечает за процесс стилизации изображения.
 def stylize(args):
+    # Здесь происходит загрузка изображения контента, его преобразование и отправка на устройство (GPU/CPU).
+    # Если модель представляет собой ONNX файл, используется другая функция для стилизации.
+    # В противном случае загружается модель и применяется к изображению контента.
+    
     device = torch.device("cuda" if args.cuda else "cpu")
 
     content_image = utils.load_image(args.content_image, scale=args.content_scale)
@@ -149,12 +164,14 @@ def stylize(args):
                 output = style_model(content_image).cpu()
     utils.save_image(args.output_image, output[0])
 
-
+# Функция stylize_onnx_caffe2(content_image, args): используется для стилизации изображения с использованием ONNX модели через Caffe2.
 def stylize_onnx_caffe2(content_image, args):
     """
     Read ONNX model and run it using Caffe2
     """
-
+    # Определены аргументы для обучения и оценки моделей.
+    # Выбор между обучением и стилизацией в зависимости от указанной подкоманды.
+    
     assert not args.export_onnx
 
     import onnx
@@ -238,7 +255,7 @@ def main():
     else:
         stylize(args)
 
-
+# Код завершается проверкой того, является ли данный скрипт главным, и в этом случае он вызывает функцию main() для выполнения основной логики программы.
 if __name__ == "__main__":
     main()
 
