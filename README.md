@@ -69,18 +69,14 @@
    # python3 -m venv venv
    # . venv/bin/activate
    ```
-3. Зайти в папку neural-style:
-   ```
-   # cd neural-style
-   ```
 
-4. Загрузить dependencies:
+3. Загрузить dependencies:
    ```
    # pip install streamlit
    # pip install torch torchvision
    ```
    
-5. Запустить streamlit приложение:
+4. Запустить streamlit приложение:
    ```
    # streamlit run main.py
    ```
