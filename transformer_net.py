@@ -1,22 +1,24 @@
 import torch
 
+# Определение класса TransformerNet, представляющего модель преобразования изображения
 class TransformerNet(torch.nn.Module):
     def __init__(self):
         super(TransformerNet, self).__init__()
-        # Initial convolution layers
+        # Инициализация слоев свертки, слоев InstanceNorm, блоков Residual и слоев Upsampling.
+        # Все слои и блоки объединены вместе для построения архитектуры модели.
         self.conv1 = ConvLayer(3, 32, kernel_size=9, stride=1)
         self.in1 = torch.nn.InstanceNorm2d(32, affine=True)
         self.conv2 = ConvLayer(32, 64, kernel_size=3, stride=2)
         self.in2 = torch.nn.InstanceNorm2d(64, affine=True)
         self.conv3 = ConvLayer(64, 128, kernel_size=3, stride=2)
         self.in3 = torch.nn.InstanceNorm2d(128, affine=True)
-        # Residual layers
+        # Residual слои
         self.res1 = ResidualBlock(128)
         self.res2 = ResidualBlock(128)
         self.res3 = ResidualBlock(128)
         self.res4 = ResidualBlock(128)
         self.res5 = ResidualBlock(128)
-        # Upsampling Layers
+        # Upsampling слои
         self.deconv1 = UpsampleConvLayer(128, 64, kernel_size=3, stride=1, upsample=2)
         self.in4 = torch.nn.InstanceNorm2d(64, affine=True)
         self.deconv2 = UpsampleConvLayer(64, 32, kernel_size=3, stride=1, upsample=2)
@@ -26,6 +28,8 @@ class TransformerNet(torch.nn.Module):
         self.relu = torch.nn.ReLU()
 
     def forward(self, X):
+        # Определение процесса прямого прохода (forward pass) для модели TransformerNet.
+        # Проходит через различные слои и блоки, применяя нелинейности и преобразования.
         y = self.relu(self.in1(self.conv1(X)))
         y = self.relu(self.in2(self.conv2(y)))
         y = self.relu(self.in3(self.conv3(y)))
@@ -39,7 +43,7 @@ class TransformerNet(torch.nn.Module):
         y = self.deconv3(y)
         return y
 
-
+# Класс ConvLayer определяет слой свертки.
 class ConvLayer(torch.nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size, stride):
         super(ConvLayer, self).__init__()
@@ -52,7 +56,7 @@ class ConvLayer(torch.nn.Module):
         out = self.conv2d(out)
         return out
 
-
+# Класс ResidualBlock представляет блок остаточной связи Residual.
 class ResidualBlock(torch.nn.Module):
     """ResidualBlock
     introduced in: https://arxiv.org/abs/1512.03385
@@ -74,7 +78,7 @@ class ResidualBlock(torch.nn.Module):
         out = out + residual
         return out
 
-
+# Класс UpsampleConvLayer определяет слой сначала интерполирующий входные данные, а затем выполняющий свертку.
 class UpsampleConvLayer(torch.nn.Module):
     """UpsampleConvLayer
     Upsamples the input and then does a convolution. This method gives better results
