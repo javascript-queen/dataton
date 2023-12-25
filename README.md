@@ -1,7 +1,5 @@
 # Группа 10 - Проект для Dataton от Skillfactory Науки о Данных
 
-# Группа 10 - Проект для Dataton от Skillfactory Науки о Данных
-
 ### Ветка для бота
 
 ![bot_Artboard 1](https://github.com/javascript-queen/dataton/assets/90614620/c9367226-f67c-4ab0-aa4c-8daaec28fa4a)
