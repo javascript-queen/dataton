@@ -60,7 +60,7 @@
 
 ## Презентация проекта
 
-[dataton_team_10.pdf](https://github.com/javascript-queen/dataton/files/13766800/dataton_team_10.pdf)
+[dataton-presentation-10.pdf](https://github.com/javascript-queen/dataton/files/13778959/dataton-presentation-10.pdf)
 
 ## Приложение 
 
